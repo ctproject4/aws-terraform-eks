@@ -1,5 +1,6 @@
 variable "cluster_name" {
   description = "Name of the EKS cluster. Also used as a prefix in names of related resources."
+  default = "devops-demo"
 }
 
 variable "cluster_security_group_id" {
@@ -48,16 +49,18 @@ variable "map_users" {
 variable "subnets" {
   description = "A list of subnets to place the EKS cluster and workers within."
   type        = "list"
+  default = ["subnet-5723be0d","subnet-01ef51cd5c6bc5156"]
 }
 
 variable "tags" {
   description = "A map of tags to add to all resources."
   type        = "map"
-  default     = {}
+  default     = { "Owner" = "Ahtesham" }
 }
 
 variable "vpc_id" {
   description = "VPC where the cluster and workers will be deployed."
+  default = "vpc-e38de39a"
 }
 
 variable "worker_groups" {
